@@ -1,0 +1,11 @@
+{
+  "url": "https://data.brreg.no/enhetsregisteret/api/enheter/lastned/csv",
+  "verified_at": "2026-09-30T11:37:15.500431Z",
+  "bytes": 154803824,
+  "sha256": "a7a3c7e5ac4024a5e686edb621bdeac92c17fdf0cc8f90fddba8e8a0c28eaa99",
+  "last_modified": "Wed Sep 30 04:27:22 CEST 2026",
+  "etag": "ad00026fe02ea7f391a5d32414f6bd68",
+  "content_disposition": "attachment; filename=\"enheter_2026-09-30T04-24-45.430865602.csv.gz\"",
+  "licence": "Norsk kollektiv lisens for åpne data (NLOD) 2.0",
+  "licence_url": "https://lovdata.no/dokument/NL/kapittel/om-aa-publisere"
+}
