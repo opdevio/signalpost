@@ -11,14 +11,17 @@ This repository is our entry for Builderr Signalpost Round 1.
 
 ## Evaluate it
 
-One command, from an empty folder. It needs Python 3.12+ and network access
-(the run fetches Brreg and company websites live). It creates a virtual
-environment, installs the pinned dependencies, and runs the 100-company smoke
-test; the run takes a few minutes and writes `smoke-report.json` plus the
-per-company envelopes and profiles next to it.
+One command, from an empty folder, pinned to the submitted commit
+`c26d4a85f68db9e2327ed12ed0132576434c892a`. It needs git, Python 3.12+ and
+network access (the run fetches Brreg and company websites live). It clones
+the repository at that commit, creates an empty virtual environment, runs
+only the declared install step (`pip install -r requirements.txt`), then
+runs the 100-company smoke test; the run takes a few minutes and writes
+`smoke-report.json` plus the per-company envelopes and profiles inside the
+clone.
 
 ```bash
-git clone --depth 1 https://github.com/opdevio/signalpost.git . && python3 -m venv .venv && .venv/bin/pip install --no-cache-dir -r requirements.txt && .venv/bin/python3 scripts/run_competition_batch.py --organisations data/smoke-100-organisations.jsonl --bulk data/smoke-100-snapshot.csv.gz --output smoke-envelopes.jsonl --profiles-output smoke-profiles.jsonl --report smoke-report.json --run-id evaluator-smoke --expected-count 100 --workers 8
+git clone https://github.com/opdevio/signalpost.git signalpost && cd signalpost && git checkout --detach c26d4a85f68db9e2327ed12ed0132576434c892a && python3 -m venv .venv && .venv/bin/pip install --no-cache-dir -r requirements.txt && .venv/bin/python3 scripts/run_competition_batch.py --organisations data/smoke-100-organisations.jsonl --bulk data/smoke-100-snapshot.csv.gz --output smoke-envelopes.jsonl --profiles-output smoke-profiles.jsonl --report smoke-report.json --run-id evaluator-smoke --expected-count 100 --workers 8
 ```
 
 `artifacts/smoke-report.json` is the report from our own run of that command
